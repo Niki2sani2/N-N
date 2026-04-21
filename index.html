@@ -81,26 +81,33 @@
     <button onclick="check()">Drück mich</button>
 
     <h2 id="result"></h2>
+    <h3>Ja oder Nein?</h3>
+
+<button onclick="answer('ja')">Ja</button>
+<button onclick="answer('nein')">Nein</button>
+
+<h2 id="result"></h2>
 
     <script>
-        function check() {
-            let random = Math.floor(Math.random() * 100);
+       <script>
+function answer(choice) {
 
-            let text = "Komm heute zu mir";
+    let text = "";
 
-            if (random < 50) {
-                text = "Du kommst heute zu mir 😂";
-            } else {
-                text = "Keine Ausreden 😈";
-            }
+    if (choice === "ja") {
+        text = "Nice 😏 ich wusste es";
+    } else {
+        text = "Schade 😅 Versuch war's wert";
+    }
 
-            let result = document.getElementById("result");
-            result.innerText = text;
+    document.getElementById("result").innerText = text;
 
-            result.classList.remove("show");
-            void result.offsetWidth; // Trick für Animation reset
-            result.classList.add("show");
-        }
+    let result = document.getElementById("result");
+    result.classList.remove("show");
+    void result.offsetWidth;
+    result.classList.add("show");
+}
+</script>
     </script>
 
 </body>
