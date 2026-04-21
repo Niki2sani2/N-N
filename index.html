@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nina&NiklasPage</title>
+    <title>Nina & Niklas Page</title>
 
     <style>
         body {
@@ -30,8 +30,8 @@
             background: #ff4d4d;
             color: white;
             cursor: pointer;
-            transition: 0.3s;
             margin: 5px;
+            transition: 0.3s;
         }
 
         button:hover {
@@ -50,28 +50,46 @@
             opacity: 1;
             transform: scale(1.2);
         }
+
+        #choiceButtons {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 <body>
 
-    <h1>Hi Baby 😏</h1>
-    <p>Traust du dich?</p>
+    <h1>Hi BABY 😏</h1>
 
-    <h3>Ja oder Nein?</h3>
+    <!-- STEP 1 -->
+    <button onclick="start()">Drück mich</button>
 
-    <button onclick="answer('ja')">Ja</button>
-    <button onclick="answer('nein')">Nein</button>
+    <h2 id="invite"></h2>
 
+    <!-- STEP 2 -->
+    <div id="choiceButtons">
+        <h3>Ja oder Nein?</h3>
+        <button onclick="answer('ja')">Ja</button>
+        <button onclick="answer('nein')">Nein</button>
+    </div>
+
+    <!-- RESULT -->
     <h2 id="result"></h2>
 
     <script>
+
+        function start() {
+            document.getElementById("invite").innerText = "Komm heute zu mir 😏";
+            document.getElementById("choiceButtons").style.display = "block";
+        }
+
         function answer(choice) {
 
             let text = "";
 
             if (choice === "ja") {
-                text = "Supi 😏 ich wusste es";
+                text = "Supi, bis gleich 😏 ";
             } else {
                 text = "Schade, dann schick Füßi Fotos😅 ";
             }
@@ -83,6 +101,7 @@
             void result.offsetWidth;
             result.classList.add("show");
         }
+
     </script>
 
 </body>
