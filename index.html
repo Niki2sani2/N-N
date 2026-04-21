@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 😏</title>
+
+    <style>
+        body {
+    background: linear-gradient(270deg, #ff4d4d, #000000, #ff1a1a);
+    background-size: 600% 600%;
+    animation: moveBackground 10s ease infinite;
+
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    margin-top: 150px;
+}
+    @keyframes moveBackground {
+        0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+    }
+            
+
+        h1 {
+            font-size: 40px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            background: #ff4d4d;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff1a1a;
+            transform: scale(1.1);
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 30px;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .show {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Klick mal 😏</h1>
+    <p>Traust du dich?</p>
+
+    <button onclick="check()">Drück mich</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function check() {
+            let random = Math.floor(Math.random() * 100);
+
+            let text = "";
+
+            if (random < 50) {
+                text = "Du kommst heute zu mir 😂";
+            } else {
+                text = "Keine Ausreden 😈";
+            }
+
+            let result = document.getElementById("result");
+            result.innerText = text;
+
+            result.classList.remove("show");
+            void result.offsetWidth; // Trick für Animation reset
+            result.classList.add("show");
+        }
+    </script>
+
+</body>
+</html>
